@@ -1,0 +1,15 @@
+{
+  "name": "community-report-issues",
+  "version": "1.0.0",
+  "description": "Community issue reporting with Express and Supabase",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0"
+  }
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CommunityCare | Report Issues</title>
+<link rel="stylesheet" href="/css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="/js/app.js"></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="/">Community<span>Care</span></a><nav><a href="#report">Report an issue</a><a href="#my-reports">My reports</a></nav><div class="account"><span id="user-label"></span><button id="login-open">Log in</button><button id="signup-open" class="primary">Create account</button><button id="logout-btn" hidden>Log out</button></div></header>
+<main>
+<section class="hero"><div><p class="eyebrow">YOUR NEIGHBOURHOOD, YOUR VOICE</p><h1>Small reports.<br><span>Better communities.</span></h1><p>Report potholes, waste, broken streetlights and other local problems. Track your reports and help improve shared spaces.</p><a href="#report" class="primary cta">Report an issue ↓</a></div><div class="hero-art"><div class="emoji">🏘️</div><h3>A better place to live</h3><p>Starts with one small action.</p></div></section>
+<section class="features"><article><b>✎ Easy reporting</b><p>Describe a local issue clearly.</p></article><article><b>◷ Status tracking</b><p>Follow the status of your reports.</p></article><article><b>◎ Community impact</b><p>Help make shared spaces better.</p></article></section>
+<section id="report" class="report-section"><div><p class="eyebrow">TAKE ACTION</p><h2>Make your report count.</h2><p>Log in to submit a report and manage the issues you have reported.</p><p class="tip">Tip: include a clear location and a useful description.</p></div>
+<form id="report-form" class="panel"><h2>New issue report</h2><label>Issue title *<input id="title" required maxlength="100" placeholder="e.g. Pothole near bus stop"></label>
+<div class="two"><label>Category *<select id="category" required><option value="">Choose category</option><option>Roads & potholes</option><option>Waste & sanitation</option><option>Streetlights</option><option>Water supply</option><option>Public safety</option><option>Parks & public spaces</option><option>Other</option></select></label><label>Location *<input id="location" required maxlength="180" placeholder="Street or landmark"></label></div>
+<label>Description *<textarea id="description" required maxlength="1500" rows="4" placeholder="Explain the issue..."></textarea></label>
+<label>Photo URL (optional)<input id="photo-url" type="url" placeholder="https://..."></label>
+<button class="primary wide" type="submit">Submit report</button><small>Log in before submitting. Photo upload can be added through Supabase Storage in a later step.</small></form></section>
+<section id="my-reports" class="reports-section"><p class="eyebrow">YOUR ACTIVITY</p><div class="section-head"><div><h2>My reports</h2><p>View, edit, or delete your submitted reports.</p></div><button id="refresh-btn">Refresh ↻</button></div><div id="message" class="empty">Log in to see your reports.</div><div id="reports-list" class="report-list"></div></section>
+<section class="how"><p class="eyebrow">SIMPLE BY DESIGN</p><h2>How it works</h2><div class="features"><article><b>01 · Spot an issue</b><p>Note its exact location.</p></article><article><b>02 · Submit a report</b><p>Add a title and details.</p></article><article><b>03 · Track progress</b><p>Check your report status.</p></article></div></section>
+</main><footer>CommunityCare · Community Report Issues student project</footer>
+<div id="auth-modal" class="modal" hidden><div class="modal-card"><button class="close" data-close>×</button><p class="eyebrow">COMMUNITYCARE ACCOUNT</p><h2 id="auth-title">Log in</h2><div class="tabs"><button id="tab-login" class="active" type="button">Log in</button><button id="tab-signup" type="button">Create account</button></div><form id="auth-form"><label id="name-wrap" hidden>Full name<input id="auth-name" maxlength="80"></label><label>Email<input id="auth-email" type="email" required autocomplete="email"></label><label>Password<input id="auth-password" type="password" required minlength="6" autocomplete="current-password"></label><button id="auth-submit" class="primary wide">Log in</button></form></div></div>
+<div id="edit-modal" class="modal" hidden><div class="modal-card"><button class="close" data-edit-close>×</button><h2>Edit report</h2><form id="edit-form"><input id="edit-id" type="hidden"><label>Title<input id="edit-title" required maxlength="100"></label><label>Category<select id="edit-category"><option>Roads & potholes</option><option>Waste & sanitation</option><option>Streetlights</option><option>Water supply</option><option>Public safety</option><option>Parks & public spaces</option><option>Other</option></select></label><label>Location<input id="edit-location" required maxlength="180"></label><label>Description<textarea id="edit-description" rows="4" required maxlength="1500"></textarea></label><button class="primary wide">Save changes</button></form></div></div>
+<div id="toast" role="status" hidden></div>
+</body></html>
